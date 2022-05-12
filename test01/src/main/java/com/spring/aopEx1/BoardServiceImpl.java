@@ -11,7 +11,8 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void insertBoard() {
 		// TODO Auto-generated method stub
-		log.printLog();
+//		log.printLog();
+		log.printLogmodify();
 		System.out.println("[핵심관심영역 코드] insertBoard() 실행");
 	}
 
