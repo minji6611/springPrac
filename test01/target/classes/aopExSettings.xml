@@ -2,8 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	<context:component-scan base-package="com.spring.aopEx1"/>
-
+	
+	<bean id ="log" class="com.spring.aopEx1.LogAdvice"/>
+	
+	<aop:config>
+<!--*: 리턴타입 있던없던 상관 X 패키지, ~Impl.~ 파일 가져가겠다.  (..)메소드 중 인자 있는놈없는놈 다 ,,,가져오겠다..-->
+	<aop:pointcut id="allPointcut" expression="execution(* com.spring.aopEx1..*Impl.*(..))"/>
+	<aop:aspect ref="log">
+		<aop:before pointcut-ref="allPointcut" method="printLog"/> 
+	</aop:aspect>
+	</aop:config>
 </beans>
