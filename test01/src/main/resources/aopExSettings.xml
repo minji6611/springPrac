@@ -12,8 +12,9 @@
 	
 	<aop:config>
 <!--*: 리턴타입 있던없던 상관 X 패키지, ~Impl.~ 파일 가져가겠다.  (..)메소드 중 인자 있는놈없는놈 다 ,,,가져오겠다..-->
-	<aop:pointcut id="allPointcut" expression="execution(* com.spring.aopEx1..*Impl.*(..))"/>
+	<!--<aop:pointcut id="allPointcut" expression="execution(* com.spring.aopEx1..*Impl.*(..))"/>  -->
 	<aop:aspect ref="log">
+		<aop:pointcut id="allPointcut" expression="execution(* com.spring.aopEx1..*Impl.*(..))"/>
 		<aop:before pointcut-ref="allPointcut" method="printLogmodify"/> <!-- method="printLog" -->
 		<!-- aop:after 어라운드인가..양쪽으로 뜨는것도 있다는데.. -->
 	</aop:aspect>
