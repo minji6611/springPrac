@@ -10,8 +10,21 @@ public class BoardMain {
 		ApplicationContext context = new GenericXmlApplicationContext("aopAdviceSettings2.xml");
 		BoardService bService  = (BoardService)context.getBean("boardService");
 		
-		bService.insertBoard();
+		BoardDo bdo = new BoardDo();
+		bdo.setSeq(1);
+		bdo.setTitle("Title");
+		bdo.setWriter("writer");
+		bdo.setContent("content");
+		bService.insertBoardReturn(bdo);
+		
+		
+//		bService.insertBoardDO(bdo);
+//		bService.insertBoardExcept();
+	
 		bService.updateBoard();
+		
 	}
 
 }
+
+

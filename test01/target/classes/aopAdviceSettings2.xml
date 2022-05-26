@@ -18,12 +18,41 @@
 	<bean id="around" class="com.spring.aopex2.AroundAdvice"/>
 	
 	<aop:config>
+		
 		<aop:pointcut expression="execution(* com.spring.aopex2..*Impl.insert*(..))" 
 						id="insertPointcut"/>
 		<aop:pointcut expression="execution(* com.spring.aopex2..*Impl.update*(..))" 
 						id="updatePointcut"/>
 						
-		<aop:aspect ref="afterThrowing">
+						
+		<aop:pointcut expression="execution(* com.spring.aopex2..*Impl.insertBoardDO(..))" 
+						id="insertDoPointcut"/>
+		<aop:pointcut expression="execution(* com.spring.aopex2..*Impl.insertBoardExcept(..))" 
+						id="insertExceptPointcut"/>
+		<aop:pointcut expression="execution(* com.spring.aopex2..*Impl.insertBoardReturn(..))" 
+						id="insertReturnPointcut"/>		
+		<aop:pointcut expression="execution(* com.spring.aopex2..*Impl.insertBoardReturn(..))" 
+						id="insertReturnPointcut"/>		
+		<!-- <aop:aspect ref="before">
+			<aop:before method="beforeLogDo"
+								pointcut-ref="insertDoPointcut"/>
+		</aop:aspect>	 -->
+		<!-- <aop:aspect ref="afterThrowing">
+			<aop:after-throwing method="afterThrowingAdviceLogExcept"
+								throwing="exceptObj"
+								pointcut-ref="insertExceptPointcut"/>
+		</aop:aspect> -->
+<!-- 		<aop:aspect ref="afterReturning">
+			<aop:after-returning method="afterReturningAdviceLogDO"
+								returning="returnObj"
+								pointcut-ref="insertReturnPointcut"/>
+		</aop:aspect> -->
+					
+		<aop:aspect ref="around">
+			<aop:around method="aroundAdviceDO"
+						pointcut-ref="insertReturnPointcut"/> 
+		</aop:aspect>
+<!-- 		<aop:aspect ref="afterThrowing">
 			<aop:after-throwing method="afterThrowingAdviceLog"
 								pointcut-ref="insertPointcut"/>
 		</aop:aspect>
@@ -35,8 +64,8 @@
 		
 		<aop:aspect ref="around">
 			<aop:around method="aroundAdvice"
-						pointcut-ref="updatePointcut"/>
-		</aop:aspect>
+						pointcut-ref="updatePointcut"/> 
+		</aop:aspect>-->
 		<!-- <aop:aspect ref="afterReturning">
 			 <aop:before pointcut-ref="updatePointcut" method="afterReturningAdviceLog"/>
 			<aop:after-returning method="afterReturningAdviceLog"
