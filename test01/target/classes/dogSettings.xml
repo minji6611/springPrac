@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dogDo1" class="com.spring.dog.impl.DogDo"
+	p:name="젤다" p:species="공주" p:color="노란색" />
+	
+		<bean id="dogDo2" class="com.spring.dog.impl.DogDo"
+	p:name="링크" p:species="쾌남" p:color="누런색" />
+	
+	<bean id="dogInfoDao" class="com.spring.dog.impl.DogInfoDao"/>
+	
+	<!-- 생성자 이용 -->
+	<bean id="dogService" class="com.spring.dog.impl.DogServiceImpl">
+		<constructor-arg>
+			<ref bean="dogInfoDao"/>
+		</constructor-arg>
+	</bean>
+	
+ 	<!-- getter, setter 이용 -->
+<!--	<bean id="dogService"  class="com.spring.dog.impl.DogServiceImpl">
+		<property name="dogInfoDao" ref="dogInfoDao"/>
+	</bean> -->
+</beans>
