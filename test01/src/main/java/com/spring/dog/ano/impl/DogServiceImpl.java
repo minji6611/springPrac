@@ -1,18 +1,16 @@
-package com.spring.dog.impl;
+package com.spring.dog.ano.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spring.dog.service.DogService;
+import com.spring.dog.ano.service.DogService;
 
+
+@Service("dogService")
 public class DogServiceImpl implements DogService {
+	@Autowired
 	private DogInfoDao ddao;
 	
-	
-	//생성자를 이용한  ddao 주입
-	public DogServiceImpl(DogInfoDao ddao) {
-		super();
-		this.ddao = ddao;
-	}
 
 	//getter, setter를 이용한 ddao 주입
 	public DogInfoDao getDdao() {
