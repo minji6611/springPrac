@@ -25,7 +25,7 @@ public class BeforeAdvice {
 //	<aop:aspect ref="before">
 //		<aop:before method="beforeLogDo" pointcut-ref="insertDoPointcut"/>
 //	</aop:aspect>
-	@Before("insertDoPointcut()")
+	@Before("PointcutCommon.insertDoPointcut()")
 	public void beforeLogDo(JoinPoint jp) {
 		System.out.println("[beforeAdviceDo] 비즈니스 로직 수행 전에 실행(JointPoint)!!");
 		String method = jp.getSignature().getName();

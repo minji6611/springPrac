@@ -18,14 +18,14 @@ public class BoardMain {
 		
 		
 		
-		bService.insertBoardDO(bdo);
+		//bService.insertBoardDO(bdo);
 		
 		bService.updateBoard();
 		
 		//bService.insertBoardExcept();
 		
 		
-		bService.insertBoardReturn(bdo);
+		//bService.insertBoardReturn(bdo);
 		
 	
 		
