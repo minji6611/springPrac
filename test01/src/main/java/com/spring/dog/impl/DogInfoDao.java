@@ -31,7 +31,7 @@ public class DogInfoDao {
 			//sql 실행 
 			pstmt.executeUpdate();			
 			
-			System.out.println("insertBoard() 실행 완료 !! ");
+			System.out.println("insertDogInfo() 실행 완료 !! ");
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
